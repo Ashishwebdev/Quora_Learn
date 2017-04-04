@@ -9,19 +9,22 @@ class User < ActiveRecord::Base
   validates_presence_of :password, :on => :create
   validates_confirmation_of :new_password, :if => Proc.new {|user| !user.new_password.nil? && !user.new_password.empty? }
 
-  validates_presence_of :email, :on => :create, :if => Proc.new {|user| 
-  user.previous_email.nil? || user.email != user.previous_email}
+  validates_presence_of :email, :on => :create
 
-  validates_presence_of :username, :on => :create,:if => Proc.new {|user| 
-  user.previous_username.nil? || user.username != user.previous_username}
-  validates_uniqueness_of :email, :if => Proc.new {|user| 
-  user.previous_email.nil? || user.email != user.previous_email}
-  validates_uniqueness_of :username,:if => Proc.new {|user| 
-  user.previous_username.nil? || user.username != user.previous_username}
+  validates_presence_of :username, :on => :create
+  validates_uniqueness_of :email
+  validates_uniqueness_of :username
 
 
   def initialize(attributes = {})
     super # must allow the active record to initialize!
+    attributes.each do |name, value|
+      send("#{name}=", value)
+    end
+  end
+
+  def update(attributes = {})
+    super     # must allow the active record to initialize!
     attributes.each do |name, value|
       send("#{name}=", value)
     end
