@@ -1,4 +1,26 @@
 Rails.application.routes.draw do
+ root :to=>"home#index"
+  get "sign_in" => 'authentication#sign_in'
+   get 'authentication/sign_in'
+
+  get 'authentication/change_password'
+
+  get 'authentication/forgot_password'
+
+get "new_user" => 'authentication#new_user'
+  get 'authentication/new_user'
+
+  get 'authentication/password_sent'
+
+  get 'authentication/signed_out'
+  get "account_settings" => "authentication#account_settings"
+
+  post "sign_in" => "authentication#login"
+
+  put "new_user" => "authentication#register"
+
+
+put "account_settings" => "authentication#set_account_info"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
