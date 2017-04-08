@@ -14,6 +14,8 @@ class User < ActiveRecord::Base
   validates_presence_of :username, :on => :create
   validates_uniqueness_of :email
   validates_uniqueness_of :username
+  has_many :user_questions, class_name: 'UserQuestion'
+  has_many :questions, :through => :user_questions
 
 
   def initialize(attributes = {})
@@ -55,4 +57,6 @@ class User < ActiveRecord::Base
     	self.password_hash = BCrypt::Engine.hash_secret(password,password_salt)	
   	end	
  end
+
+
 end
