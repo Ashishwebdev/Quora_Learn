@@ -16,7 +16,9 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :username
   has_many :user_questions, class_name: 'UserQuestion'
   has_many :questions, :through => :user_questions
-
+  has_many :user_topics
+  has_many :topics ,:through => :user_topics
+  has_many :answers
 
   def initialize(attributes = {})
     super # must allow the active record to initialize!
