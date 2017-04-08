@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170408081754) do
+ActiveRecord::Schema.define(version: 20170408180808) do
+
+  create_table "answer_comments", force: :cascade do |t|
+    t.integer  "answer_id",  limit: 4
+    t.integer  "comment_id", limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
 
   create_table "answers", force: :cascade do |t|
     t.integer  "question_id", limit: 4
@@ -19,6 +26,15 @@ ActiveRecord::Schema.define(version: 20170408081754) do
     t.text     "content",     limit: 65535
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+    t.integer  "comment_id",  limit: 4
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.integer  "answer_id",  limit: 4
+    t.text     "content",    limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "question_answers", force: :cascade do |t|
@@ -54,6 +70,13 @@ ActiveRecord::Schema.define(version: 20170408081754) do
     t.datetime "updated_at",                null: false
   end
 
+  create_table "user_comments", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.integer  "comment_id", limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
   create_table "user_questions", force: :cascade do |t|
     t.integer  "user_id",     limit: 4
     t.integer  "question_id", limit: 4
@@ -80,6 +103,7 @@ ActiveRecord::Schema.define(version: 20170408081754) do
     t.integer  "question_id",   limit: 4
     t.integer  "topic_id",      limit: 4
     t.integer  "answer_id",     limit: 4
+    t.integer  "comment_id",    limit: 4
   end
 
 end
