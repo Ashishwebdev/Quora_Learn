@@ -1,5 +1,16 @@
 Rails.application.routes.draw do
- root :to=>"home#index"
+  get 'user/index'
+
+  get 'user/show'
+
+  get 'user/update'
+
+  get 'user/delete'
+
+  get 'user/destroy'
+
+  get 'topic/topic_interest'
+
   get "sign_in" => 'authentication#sign_in'
    get 'authentication/sign_in'
 
@@ -21,6 +32,19 @@ get "new_user" => 'authentication#new_user'
 
 
 put "account_settings" => "authentication#set_account_info"
+
+root :to=>"home#index"
+
+match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
+match 'auth/failure', to: redirect('/'), via: [:get, :post]
+match 'user/authentication/signed_out', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
+
+resources :user
+resources :question
+resources :answer
+resources :comment
+resources :topic
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

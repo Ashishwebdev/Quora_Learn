@@ -46,6 +46,10 @@ group :development do
   gem 'spring'
 
   gem 'bcrypt-ruby', :require=>'bcrypt'
+
+  gem 'omniauth'
+
+  gem 'omniauth-facebook', '1.4.0'
   
 end
 

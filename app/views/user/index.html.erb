@@ -1,0 +1,16 @@
+<%if params[:controller]=='user'%>
+<%if (!@user.topics)%>
+<h2>Select Topics of your interest</h2>
+<table>
+  <tr>
+  	<th>Topic Name</th>
+  </tr>
+
+ <% @topics.each do |topic|%>
+     <tr>
+     	<td><%= @user.topics%></td>
+     </tr>
+     <% end %>
+  </table>
+  <% end %>	
+  <% end %>

@@ -18,16 +18,12 @@ class AuthenticationController < ApplicationController
     if user
        session[:user_id] = user.id
       flash[:notice]='Welcome'
-      redirect_to :root
+      redirect_to :user_index
     else
       flash.now[:error] = 'Unknown user. Please check your username and password.'
       render :action => "sign_in"
     end
   end
-
-def new_user
-  @user = User.new
-end
 
 def register
   @user = User.new(params[:user])
@@ -36,7 +32,7 @@ def register
     @user.save
     session[:user_id] = @user.id
     flash[:notice] = 'Welcome.'
-    redirect_to :root
+    redirect_to :user_index 
   else
     render :action => "new_user"
   end
@@ -100,5 +96,17 @@ end
 
   def sign_up
   end
+ 
 
+ def from_omniauth(auth)
+    where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
+      user.provider = auth.provider
+      user.uid = auth.uid
+      user.name = auth.info.name
+      user.oauth_token = auth.credentials.token
+      user.oauth_expires_at = Time.at(auth.credentials.expires_at)
+      user.save!
+    end
+  end
+  
 end

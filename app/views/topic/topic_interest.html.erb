@@ -1,0 +1,8 @@
+<div>
+	<p>
+		Select the topic of interest
+	</p>
+	<%@topic.each do |topic|%>
+      <%= link_to topic.content , topic_path(topic.id)%>
+	<%end%>
+</div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170408180808) do
+ActiveRecord::Schema.define(version: 20170409112822) do
 
   create_table "answer_comments", force: :cascade do |t|
     t.integer  "answer_id",  limit: 4
@@ -94,16 +94,19 @@ ActiveRecord::Schema.define(version: 20170408180808) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "username",      limit: 255
-    t.string   "email",         limit: 255
-    t.string   "password_hash", limit: 255
-    t.string   "password_salt", limit: 255
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
-    t.integer  "question_id",   limit: 4
-    t.integer  "topic_id",      limit: 4
-    t.integer  "answer_id",     limit: 4
-    t.integer  "comment_id",    limit: 4
+    t.string   "username",         limit: 255
+    t.string   "email",            limit: 255
+    t.string   "password_hash",    limit: 255
+    t.string   "password_salt",    limit: 255
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.integer  "question_id",      limit: 4
+    t.integer  "topic_id",         limit: 4
+    t.integer  "answer_id",        limit: 4
+    t.integer  "comment_id",       limit: 4
+    t.integer  "uid",              limit: 4
+    t.integer  "oauth_token",      limit: 4
+    t.datetime "oauth_expires_at"
   end
 
 end
