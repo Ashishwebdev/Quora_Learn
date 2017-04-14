@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'user/index'
-
+  
+   get "user/topic_interest"
   get 'user/show'
 
   get 'user/update'

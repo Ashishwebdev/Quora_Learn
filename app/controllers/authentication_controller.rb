@@ -32,7 +32,7 @@ def register
     @user.save
     session[:user_id] = @user.id
     flash[:notice] = 'Welcome.'
-    redirect_to :user_index 
+    redirect_to :controller=>"user", :action=> "topic_interest" 
   else
     render :action => "new_user"
   end

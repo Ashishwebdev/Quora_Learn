@@ -1,0 +1,15 @@
+
+<%= form_for :topic ,:url=>{:action=>'topic_interest'} do |topic|%>
+<h2>Select Topics of your interest</h2>
+  <h4>	Topic Name </h4>
+  </br>
+
+ <% @topics.each do |topic|%>
+     <input type="checkbox" name="vehicle"><%= topic.content%> </br>
+     <% end %>
+<%=topic.submit "Submit"%>
+  <% end %>
+   
+  
+
+
