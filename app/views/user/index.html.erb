@@ -1,0 +1,9 @@
+<%= stylesheet_link_tag  'user', media: 'all', 'data-turbolinks-track' => true %>
+
+      <% @questions.each do |question|%>
+     <%= question.content%> </br>
+     <% end %>
+
+      <% @topics.each do |topic|%>
+     <%= topic.content%> </br>
+     <% end %>

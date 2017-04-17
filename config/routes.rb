@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   get 'user/index'
-  
-   get "user/topic_interest"
+  get "user/topic_interest"
+  post "/user/add_user_topics" => "user#add_user_topics"
+ get 'home/sign_up'
   get 'user/show'
 
   get 'user/update'

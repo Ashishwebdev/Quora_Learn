@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Quora</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
@@ -16,16 +16,33 @@
     <%= link_to "Sign Out", 'authentication/signed_out' %>
    <%= link_to "Account Settings", account_settings_path %>
   <% else %>
-    <%= link_to "Sign up", new_user_path %> </br>
-    <%= link_to "Sign In", sign_in_path %>
     
+ <div id = "background">
+    <p>Sign In</p>
+<%= form_for :user, :as => :user, :url => sign_in_path(@user) do |f| %>
+  <p>
+    <%= f.label 'username or email:' %><br />
+    <%= f.text_field :username %>
+  </p>
+  <p>
+    <%= f.label 'password:' %><br />
+    <%= f.password_field :password %>
+  </p>
+  <p>
+    <%= f.submit 'Sign In' %>&nbsp;&nbsp;&nbsp;
+    <%= f.submit 'Clear Form', :type => 'reset' %>
+  </p>
+  <%= link_to "Sign up", 'home/sign_up' %> 
+</div>
+<% end %>
+
     <div id="user-widget">
   <% if current_user %>
     Welcome <strong><%= current_user.name %></strong>!
     <%= link_to "Sign out", signout_path, id: "sign_out" %>
   <% else %>
-    <%= link_to "sign in with facebook", "/auth/facebook", id: "sign_in" %>
-     <%=  image_tag "sign in with facebook", width: 300, height: 40 , id: "sign_in_facebook" %>
+   </br>
+     
   <% end %>
 </div>
   <% end %>

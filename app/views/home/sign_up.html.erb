@@ -1,4 +1,7 @@
-<p>Sign Up</p>
+<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+<%= stylesheet_link_tag 'sign_up', media: 'all' , 'data-turbolinks-track' => true %>
+<html>
+<body>
 <%= form_for :user, :as => :user, :url => new_user_path, :method => :put do |f| %>
   <p>
     <%= f.label 'username:' %><br/>
@@ -25,3 +28,5 @@
     <%= f.submit 'Clear Form', :type => 'reset' %>
   </p>
 <% end %>
+</body>
+</html>

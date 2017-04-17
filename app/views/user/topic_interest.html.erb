@@ -1,13 +1,12 @@
-
-<%= form_for :topic ,:url=>{:action=>'topic_interest'} do |topic|%>
+<%= form_tag("/user/add_user_topics") do %>
 <h2>Select Topics of your interest</h2>
   <h4>	Topic Name </h4>
   </br>
 
  <% @topics.each do |topic|%>
-     <input type="checkbox" name="vehicle"><%= topic.content%> </br>
+     <%= topic.content %> <%= check_box_tag "data[#{topic.content}]",topic.id,false  %><br/>
      <% end %>
-<%=topic.submit "Submit"%>
+<%=submit_tag "Submit"%>
   <% end %>
    
   

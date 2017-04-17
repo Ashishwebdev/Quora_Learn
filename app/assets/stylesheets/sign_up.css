@@ -11,6 +11,5 @@
  * file per style scope.
  *
  *require_tree .
- *=require home
- *= require_self
+ *=require new_user
  */
