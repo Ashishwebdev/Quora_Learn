@@ -50,6 +50,10 @@ group :development do
   gem 'omniauth'
 
   gem 'omniauth-facebook', '1.4.0'
+
+  gem "awesome_print", require:"ap"
+
+  gem 'quiet_assets'
   
 end
 

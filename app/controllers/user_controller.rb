@@ -4,7 +4,9 @@ class UserController < ApplicationController
             @user = current_user
            @topics =  @user.topics
            @questions = @user.questions
-           
+          @topics.each do |topic|
+            @question_interest = topic.questions
+          end
 
   end
   def topic_interest

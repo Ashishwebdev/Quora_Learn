@@ -11,5 +11,98 @@
  * file per style scope.
  *
  *require_tree .
- *=require user
+ *=require bootstrap
+ *require_self
  */
+
+
+
+
+
+{
+	padding:0;
+	margin:0;
+}
+section{
+	padding-top: 50px;
+    padding-left: 24px;
+    padding-right: 50px;
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    }
+
+    #user_interest_topics{
+    width: 142px;
+    float: left;
+    min-height: 1px;
+    margin-left: 30px;
+    clear: left;
+    font-size: 13px;
+    font-weight: 400;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    border: 1px grey solid;
+    }
+ .container{
+ 	word-wrap: break-word;
+ 	    border-top: 2px solid #b92b27;
+    border-bottom: 1px solid #ddd;
+    box-shadow: 0 3px 2px -2px rgba(200,200,200,0.2);
+ 	background: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 50px;
+    z-index: 800;
+ 	    backface-visibility: hidden;
+ color: #fff;
+ }
+ #Customize{
+ 	display: flex;
+ 	justify-content:space-around;
+
+ }
+ #search{
+ 	display: flex;
+ 	justify-content:space-around;
+ 	padding-top: 10px;
+ 	transition: border-color,height,background-color .2s;
+ 	height:40px;
+ 	width:450px;
+ }
+ #search>div>textarea{
+ 	list-style: none;
+ 	-webkit-font-smoothing: antialiased;
+ 	    overflow-y: hidden;
+ 	border-radius: 2px;
+ 	background-color: #f4f4f4;
+ 	outline-style: none;
+ 	height: 29px;
+ 	width:147%;
+ }
+ #logo{
+ 	padding-left: 60px;
+ }
+ #question{
+      box-sizing: border-box;
+    transition: opacity ease-in-out 100ms,color ease-in-out 100ms,background-color ease-in-out 100ms,border-color ease-in-out 100ms;
+    border-radius: 3px;
+    box-shadow: 0 1px 1px 0 rgba(200,200,200,0.2);
+    display: inline-block;
+    font-weight: 500;
+    outline: 0;
+    padding: 3px 7px 4px 7px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    background: #fff;
+    color: #585a61;
+    border: 1px solid #ced1e1;
+    font-size: 13px;
+    line-height: normal;
+    padding: 5px 8px 6px 10px;
+    margin: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+ }

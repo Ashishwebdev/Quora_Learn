@@ -1,9 +1,86 @@
-<%= stylesheet_link_tag  'user', media: 'all', 'data-turbolinks-track' => true %>
+<html>
+<head>
+	<%= stylesheet_link_tag  'user', media: 'all', 'data-turbolinks-track' => true %>
+</head>
+<body>
 
-      <% @questions.each do |question|%>
-     <%= question.content%> </br>
-     <% end %>
+<div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+               </div>
+       <div id="Customize">
 
+<div id= "logo">
+  <%=image_tag "quora.png",:size => "80x50"%>
+</div>
+<div id="search">
+	<div>
+<textarea class="selector_input text" type="text" autofocus="True" placeholder="Ask or Search Quora">
+</textarea></div>
+<div id="question"><a>Ask Question</a></div>
+
+	</div>
+
+<div id="Right">
+
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"></li>
+
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+
+
+          	<li>
+          <a href="#" role="button" aria-haspopup="true" aria-expanded="false">Read</a>
+        </li>
+          	<li>
+          <a href="#" role="button" aria-haspopup="true" aria-expanded="false">Answer</a>
+        </li>
+      <li>
+          <a href="#" role="button" aria-haspopup="true" aria-expanded="false">Notification</a>
+        </li>
+
+
+<li>
+          <a href="#" role="button" aria-haspopup="true" aria-expanded="false"><%=@user.username%></a>
+        </li>
+
+
+</div>
+</div>
+</ul>
+        </div><!--/.nav-collapse -->
+      </div>
+
+<section>
+<div id = "user_interest_topics">
+	<h3> your topic of interests </h3>
       <% @topics.each do |topic|%>
-     <%= topic.content%> </br>
+    <li> <%= topic.content%></li> </br>
      <% end %>
+ </div>    
+    <div id="user_written_question">
+    	<h3> your asked questions</h3>
+      <% @questions.each do |question|%>
+     <%= question.content%> 
+</br>
+      <%if question.answers %>
+      	 <% question.answers.each do |answer|%>
+      	<%= answer.content%>
+      	 <%end%>
+
+      <%end%>
+       </br>
+     <% end %>
+</div>
+</section>
+ 
+</body>
+</html>     
