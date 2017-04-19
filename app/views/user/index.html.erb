@@ -72,15 +72,24 @@
       </div>
 </div>
 
-<section>
+<div id="body_section">
 <div id = "user_interest_topics">
-	<h3> your topic of interests </h3>
+  <div id="fedd_edit">
+    <div>Feeds</div>  <div>Edit</div>
+  </div>
+  <div id="change_feed">
+      <div>Top Stories</div>
+      <div>New Questions</div>
+      <div>Bookmarked Answers</div>
+  </div>
+  <div id="topics_interest">
       <% @topics.each do |topic|%>
-    <li> <%= topic.content%></li> </br>
+        <div id="topic_content"><li><%=image_tag "blue_dot.png",:size => "5x5"%> <%= topic.content%></li></div>
      <% end %>
+  </div>
  </div>    
     <div id="user_written_question">
-    	<h3> your asked questions</h3>
+    	<h3> Top stories for you</h3>
       <% @questions.each do |question|%>
      <%= question.content%> 
 </br>
@@ -88,12 +97,23 @@
       	 <% question.answers.each do |answer|%>
       	<%= answer.content%>
       	 <%end%>
-
       <%end%>
        </br>
      <% end %>
 </div>
-</section>
+  <div id="improve_feed">
+    <div id="head_improve_feed"><h3>Improve Your Feed</h3></div>
+    <div id="feed_improve_ways">
+      <li>Visit Your feed</li>
+      <li>Follow 20 more topics</li>
+      <li>Find your friends on Quora</li>
+      <li>Upvote 5 more good answers</li>
+      <li>Ask yor question</li>
+      <li>Add 3 credentials</li>
+      <li>Answer a question</li>
+    </div>
+  </div>
+</div>
  
 </body>
 </html>     

@@ -15,34 +15,36 @@
  *require_self
  */
 
-
-
-
-
 {
 	padding:0;
 	margin:0;
 }
-section{
-	padding-top: 50px;
-    padding-left: 24px;
-    padding-right: 50px;
+#body_section {
     width: 50%;
     display: flex;
-    justify-content: space-between;
-    }
-
+    padding-top: 100px;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin: 0;
+}
     #user_interest_topics{
-    width: 142px;
+    display: flex;
+    flex-direction: column;
+        margin-left: 147px;
+    color: #666;
+    line-height: 2.25;
     float: left;
     min-height: 1px;
-    margin-left: 30px;
     clear: left;
     font-size: 13px;
     font-weight: 400;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-    border: 1px grey solid;
+    width: 142px;
+    position: fixed;
     }
+#topic_content>li{
+     list-style: none}
+
  .container{
  	word-wrap: break-word;
  	    border-top: 2px solid #b92b27;
@@ -152,6 +154,7 @@ section{
  #notification_content{
      display: flex;
  }
+
  #logo_notification{
      top: 15px;
      left: 10px;
@@ -160,3 +163,40 @@ section{
      background-size: 21px 42px;
      background-image: url(//qsf.ec.quoracdn.net/-3-images.notifs2.svg-26-b35ae412f08c6f34.svg);
  }
+#fedd_edit{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: inset gainsboro 1px;
+}
+#user_written_question{
+    padding-left: 300px;
+}
+#improve_feed{
+display: flex;
+    position:fixed;
+    border-radius: 3px;
+    border: 1px solid #e2e2e2;
+    flex-direction:column;
+    right: 160px;
+}
+
+#head_improve_feed{
+    font-size: 15px;
+    line-height: 1.4;
+    font-weight: 500;
+    padding: 16px;
+    border-bottom: 1px solid #e2e2e2;
+    background-color: #fafafa;
+}
+#head_improve_feed>h3{
+    margin: 0;
+    padding:0;
+    font-size: 15px;
+    line-height: 1.4;
+    font-weight: 500;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+#feed_improve_ways>li{
+    list-style: none;
+    line-height: 2.4;
+}
