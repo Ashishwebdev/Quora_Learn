@@ -57,6 +57,8 @@ section{
     z-index: 800;
  	    backface-visibility: hidden;
  color: #fff;
+     display: flex;
+     justify-content: space-around;
  }
  #Customize{
  	display: flex;
@@ -65,24 +67,23 @@ section{
  }
  #search{
  	display: flex;
- 	justify-content:space-around;
+ 	justify-content:space-between;
  	padding-top: 10px;
  	transition: border-color,height,background-color .2s;
  	height:40px;
  	width:450px;
+
  }
- #search>div>textarea{
+  #textarea {
  	list-style: none;
- 	-webkit-font-smoothing: antialiased;
- 	    overflow-y: hidden;
  	border-radius: 2px;
  	background-color: #f4f4f4;
- 	outline-style: none;
  	height: 29px;
- 	width:147%;
+     width:100%;
  }
  #logo{
- 	padding-left: 60px;
+     padding-left: 0px;
+     padding-right: 13px;
  }
  #question{
       box-sizing: border-box;
@@ -101,10 +102,10 @@ section{
     border: 1px solid #ced1e1;
     font-size: 13px;
     line-height: normal;
-    padding: 5px 8px 6px 10px;
     margin: 0;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
+     width: 26%;
  }
  #read_content{
      display: flex;
@@ -138,6 +139,16 @@ section{
      background-size: 25px 46px;
      background-image: url(//qsf.ec.quoracdn.net/-3-images.write2.svg-26-7366484acc883b48.svg);
  }
+  #notification{
+
+      color: #999;
+  }
+#answer{
+    color:#999;
+}
+#read{
+    color: #999;
+}
  #notification_content{
      display: flex;
  }

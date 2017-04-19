@@ -19,9 +19,8 @@
   <%=image_tag "quora.png",:size => "80x50"%>
 </div>
 <div id="search">
-	<div>
-<textarea class="selector_input text" type="text" placeholder="Ask or Search Quora">
-</textarea></div>
+<textarea id="textarea" class="selector_input text" type="text" placeholder="Ask or Search Quora">
+</textarea>
 <div id="question"><a>Ask Question</a></div>
 
 	</div>
@@ -51,20 +50,22 @@
             <div id="notification">  Notification</div>
           </a>
       </li>
-            <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%=@user.username%> <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-            <li> <div id="user-widget">
-                    <% if current_user %>
-        Welcome <strong><%= current_user.username %></strong>!
-        <%= link_to "Sign out", signout_path, id: "sign_out" %>
-        <% else %>
-          </br>
-     
-           <% end %>
-                </div></li>
+     <li class="dropdown">
+       <a id="current_user" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+         <div id="profile_pic"></div>
+       <div id="username"><%=@user.username%></div>
+
+       </a>
+           <ul class="dropdown-menu">
+             <li>
+               <div id="user-widget">
+                  <strong><%= current_user.username %></strong>
+                   <%= link_to "Sign out", signout_path, id: "sign_out" %>
+                     </br>
+                </div>
+            </li>
           </ul>
-        </li>
+     </li>
           </ul>
 </div><!--/.nav-collapse -->
 </div>
