@@ -12,7 +12,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-               </div>
+        </div>
        <div id="Customize">
 
 <div id= "logo">
@@ -20,7 +20,7 @@
 </div>
 <div id="search">
 	<div>
-<textarea class="selector_input text" type="text" autofocus="True" placeholder="Ask or Search Quora">
+<textarea class="selector_input text" type="text" placeholder="Ask or Search Quora">
 </textarea></div>
 <div id="question"><a>Ask Question</a></div>
 
@@ -31,48 +31,45 @@
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li class="active"></li>
-
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
-
-
+            <li>
+                 <a id="read_content" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                   <div id="logo_read"></div>
+                   <div id = "read">Read</div></a>
+            </li>
           	<li>
-          <a href="#" role="button" aria-haspopup="true" aria-expanded="false">Read</a>
-        </li>
-          	<li>
-          <a href="#" role="button" aria-haspopup="true" aria-expanded="false">Answer</a>
-        </li>
+               <a id="answer_content" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                 <div id="logo_answer"></div>
+                 <div id="answer">Answer</div>
+               </a>
+            </li>
       <li>
-          <a href="#" role="button" aria-haspopup="true" aria-expanded="false">Notification</a>
-        </li>
-
-
-
-          
-          <li class="dropdown">
+          <a id="notification_content" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+            <div id="logo_notification"></div>
+            <div id="notification">  Notification</div>
+          </a>
+      </li>
+            <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%=@user.username%> <span class="caret"></span></a>
-          <ul class="dropdown-menu">
+              <ul class="dropdown-menu">
             <li> <div id="user-widget">
-  <% if current_user %>
-    Welcome <strong><%= current_user.username %></strong>!
-    <%= link_to "Sign out", signout_path, id: "sign_out" %>
-  <% else %>
-   </br>
+                    <% if current_user %>
+        Welcome <strong><%= current_user.username %></strong>!
+        <%= link_to "Sign out", signout_path, id: "sign_out" %>
+        <% else %>
+          </br>
      
-  <% end %>
-
-</div></li>
+           <% end %>
+                </div></li>
           </ul>
         </li>
-
-
-
+          </ul>
+</div><!--/.nav-collapse -->
 </div>
-</div>
-</ul>
-        </div><!--/.nav-collapse -->
       </div>
+</div>
 
 <section>
 <div id = "user_interest_topics">

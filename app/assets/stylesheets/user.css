@@ -106,3 +106,46 @@ section{
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
  }
+ #read_content{
+     display: flex;
+ }
+
+
+ #logo_read{
+     background-size: 20px 40px;
+     background-image: url(//qsf.ec.quoracdn.net/-3-images.feed2.svg-26-27d3066097b99f1c.svg);
+     top: 15px;
+     left: 12px;
+     width: 20px;
+     height: 20px;
+     background-size: 20px 40px;
+     margin-top: 0px;
+     padding-right: 0px;
+     margin-right: 8px;
+ }
+ #answer_content{
+     display: flex;
+ }
+ #logo_answer{
+     top: 13px;
+     left: 11px;
+     width: 25px;
+     height: 23px;
+     margin-top: 0px;
+     padding-right: 0px;
+     margin-right: 8px;
+     margin-left:0px;
+     background-size: 25px 46px;
+     background-image: url(//qsf.ec.quoracdn.net/-3-images.write2.svg-26-7366484acc883b48.svg);
+ }
+ #notification_content{
+     display: flex;
+ }
+ #logo_notification{
+     top: 15px;
+     left: 10px;
+     width: 21px;
+     height: 21px;
+     background-size: 21px 42px;
+     background-image: url(//qsf.ec.quoracdn.net/-3-images.notifs2.svg-26-b35ae412f08c6f34.svg);
+ }
