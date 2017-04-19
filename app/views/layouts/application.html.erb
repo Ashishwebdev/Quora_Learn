@@ -2,24 +2,14 @@
 <html>
 <head>
   <title>Quora</title>
- <%= render 'partial/sign_in' %> 
- <%end%>
+ <%= render 'partial/sign_in' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-
-	<% flash.each do |name, msg| %>
-<%= content_tag :div, msg, :id => "flash_#{name}" %>
-<% end %>
-<p>
-  
  <%= render 'partial/sign_up' %>
-
-</p>
-
 <%= yield %>
+
 </body>
+
 </html>
-<%end%>
