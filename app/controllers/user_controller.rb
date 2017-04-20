@@ -27,6 +27,10 @@ class UserController < ApplicationController
     @user_topics = current_user.topics
   end
 
+  def answer_question
+      @user = current_user
+  end
+
   def edit
 
   end

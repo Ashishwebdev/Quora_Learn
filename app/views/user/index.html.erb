@@ -4,73 +4,7 @@
 </head>
 <body>
 
-<div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        </div>
-       <div id="Customize">
-
-<div id= "logo">
-  <%=image_tag "quora.png",:size => "80x50"%>
-</div>
-<div id="search">
-<textarea id="textarea" class="selector_input text" type="text" placeholder="Ask or Search Quora">
-</textarea>
-<div id="question"><a>Ask Question</a></div>
-
-	</div>
-
-<div id="Right">
-
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"></li>
-          </ul>
-
-          <ul class="nav navbar-nav navbar-right">
-            <li>
-                 <a id="read_content" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                   <div id="logo_read"></div>
-                   <div id = "read">Read</div></a>
-            </li>
-          	<li>
-               <a id="answer_content" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                 <div id="logo_answer"></div>
-                 <div id="answer">Answer</div>
-               </a>
-            </li>
-      <li>
-          <a id="notification_content" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-            <div id="logo_notification"></div>
-            <div id="notification">  Notification</div>
-          </a>
-      </li>
-     <li class="dropdown">
-       <a id="current_user" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-         <div id="profile_pic"></div>
-       <div id="username"><%=@user.username%></div>
-
-       </a>
-           <ul class="dropdown-menu">
-             <li>
-               <div id="user-widget">
-                  <strong><%= current_user.username %></strong>
-                   <%= link_to "Sign out", signout_path, id: "sign_out" %>
-                     </br>
-                </div>
-            </li>
-          </ul>
-     </li>
-          </ul>
-</div><!--/.nav-collapse -->
-</div>
-      </div>
-</div>
+<%= render 'partial/quora_header'%>
 
 <div id="body_section">
 <div id = "user_interest_topics">
@@ -87,20 +21,8 @@
         <div id="topic_content"><li><%=image_tag "blue_dot.png",:size => "5x5"%> <%= topic.content%></li></div>
      <% end %>
   </div>
- </div>    
-    <div id="user_written_question">
-    	<h3> Top stories for you</h3>
-      <% @questions.each do |question|%>
-     <%= question.content%> 
-</br>
-      <%if question.answers %>
-      	 <% question.answers.each do |answer|%>
-      	<%= answer.content%>
-      	 <%end%>
-      <%end%>
-       </br>
-     <% end %>
-</div>
+ </div>
+  <%= render 'partial/top_feed_story' %>
   <div id="improve_feed">
     <div id="head_improve_feed"><h3>Improve Your Feed</h3></div>
     <div id="feed_improve_ways">

@@ -28,6 +28,8 @@ get "new_user" => 'authentication#new_user'
   get 'authentication/signed_out'
   get "account_settings" => "authentication#account_settings"
 
+  get "user/answer_question" => "user#answer_question"
+
   post "sign_in" => "authentication#login"
 
   put "new_user" => "authentication#register"
