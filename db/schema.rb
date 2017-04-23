@@ -11,7 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170409112822) do
+ActiveRecord::Schema.define(version: 20170420130531) do
+
+  create_table "active_admin_comments", force: :cascade do |t|
+    t.string   "namespace",     limit: 255
+    t.text     "body",          limit: 65535
+    t.string   "resource_id",   limit: 255,   null: false
+    t.string   "resource_type", limit: 255,   null: false
+    t.integer  "author_id",     limit: 4
+    t.string   "author_type",   limit: 255
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
+
+  add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
+  add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
+  add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
 
   create_table "answer_comments", force: :cascade do |t|
     t.integer  "answer_id",  limit: 4
@@ -21,17 +36,13 @@ ActiveRecord::Schema.define(version: 20170409112822) do
   end
 
   create_table "answers", force: :cascade do |t|
-    t.integer  "question_id", limit: 4
-    t.integer  "user_id",     limit: 4
-    t.text     "content",     limit: 65535
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
-    t.integer  "comment_id",  limit: 4
+    t.integer  "user_id",    limit: 4
+    t.text     "content",    limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "comments", force: :cascade do |t|
-    t.integer  "user_id",    limit: 4
-    t.integer  "answer_id",  limit: 4
     t.text     "content",    limit: 65535
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
@@ -52,22 +63,15 @@ ActiveRecord::Schema.define(version: 20170409112822) do
   end
 
   create_table "questions", force: :cascade do |t|
-    t.integer  "user_id",    limit: 4
     t.text     "content",    limit: 65535
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
-    t.integer  "answer_id",  limit: 4
-    t.integer  "topic_id",   limit: 4
   end
 
-  add_index "questions", ["user_id"], name: "index_questions_on_user_id", using: :btree
-
   create_table "topics", force: :cascade do |t|
-    t.integer  "user_id",     limit: 4
-    t.integer  "question_id", limit: 4
-    t.text     "content",     limit: 65535
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.text     "content",    limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "user_comments", force: :cascade do |t|
@@ -100,10 +104,7 @@ ActiveRecord::Schema.define(version: 20170409112822) do
     t.string   "password_salt",    limit: 255
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
-    t.integer  "question_id",      limit: 4
-    t.integer  "topic_id",         limit: 4
     t.integer  "answer_id",        limit: 4
-    t.integer  "comment_id",       limit: 4
     t.integer  "uid",              limit: 4
     t.integer  "oauth_token",      limit: 4
     t.datetime "oauth_expires_at"
