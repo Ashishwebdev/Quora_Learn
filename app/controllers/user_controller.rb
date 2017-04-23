@@ -24,6 +24,7 @@ class UserController < ApplicationController
 
 
   def show
+    @user = current_user
     @user_topics = current_user.topics
   end
 
