@@ -2,6 +2,10 @@
     padding:0;
     margin:0;
 }
+#section_answer{
+    display: flex;
+    justify-content: space-around;
+}
 #body_section {
     width: 50%;
     display: flex;
@@ -193,10 +197,10 @@
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     width: 142px;
     height: 202px;
-    position:relative;
     left:146px;
     line-height: 2;
     font-size: small;
+    position: fixed;
 }
 #question_content{
     border-bottom: inset gainsboro 1px;
@@ -204,13 +208,20 @@
 #question_content>h3{
     font-size: 15px;
 }
-#top_questions{
-    height:50px;
-    width:100%
+#Top_questions{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    height: 600px;
+    width:45%;
 }
 #question_feed_lists{
     list-style: none;
 }
 #background_star_logo{
     width:20px;
+}
+#question_topic_interest_dynamic_code{
+    height: inherit;
+    padding-top: 50px;
 }
