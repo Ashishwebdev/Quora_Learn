@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%= stylesheet_link_tag  'user', media: 'all', 'data-turbolinks-track' => true %>
+</head>
+<body>
+<%= render 'partial/quora_header'%>
+<section id="user_profile_section">
+  <div id="user_profile">
+    <div>
+      <div id = "user_profile_pic"></div>
+      <div id = "user_name"><h1><%=current_user.username%></h1></div>
+
+    </div>
+
+    <div>
+      <div>
+
+      </div>
+      <div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div id="user_data_know">
+    <div>
+
+    </div>
+    <div>
+
+    </div>
+
+  </div>
+</section>
+</body>
+</html>
