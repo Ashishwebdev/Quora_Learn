@@ -15,13 +15,13 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email
   validates_uniqueness_of :username
   
-  has_many :user_questions, class_name: 'UserQuestion'
-  has_many :questions, :through => :user_questions
+
+  has_many :questions, :through
 
   has_many :user_topics
   has_many :topics ,:through => :user_topics
   
-  has_many :answers
+  has_one :answer
 
   has_many :user_comments
   has_many :comments , :through => :user_comments
