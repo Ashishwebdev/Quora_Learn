@@ -14,9 +14,11 @@ Rails.application.routes.draw do
 =end
   root :to=>"home#index"
 
+=begin
 resources :question
 resources :answer
 resources :comment
 resources :topic
+=end
 
 end
