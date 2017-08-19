@@ -22,6 +22,6 @@ module Quora
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
 
-    ActiveSupport.halt_callback_chains_on_return_false = false
+
   end
 end

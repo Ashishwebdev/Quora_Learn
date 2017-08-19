@@ -13,3 +13,30 @@
  *require_tree .
  *=require new_user
  */
+
+#flash_notice {
+    border: 1px solid #000066;
+    padding: 4px;
+    margin-bottom: 10px;
+    background-color: #A3B15A;
+}
+#sign_in {
+
+    background: lightblue ;
+
+}
+
+
+body {
+    padding-top: 20px;
+    background-image: url("background.png");
+    background-size: 1757px 845px;
+    height: 100%;
+    width: 95%;
+    background-repeat: no-repeat;
+    background-position: center 10%;
+}
+#background
+{
+    text-align: center;
+}

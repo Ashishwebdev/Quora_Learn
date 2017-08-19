@@ -24,7 +24,6 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use ActiveModel has_secure_password
- gem 'bcrypt', '~> 3.1.7'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -46,10 +45,6 @@ group :development do
   gem 'spring'
 
 
-  gem 'omniauth'
-
-  gem 'omniauth-facebook', '1.4.0'
-
   gem "awesome_print", require:"ap"
 
 
@@ -58,3 +53,6 @@ end
 gem 'actionpack', '~> 5.1', '>= 5.1.0'
 
 gem 'actioncable', '~> 5.1', '>= 5.1.0'
+
+gem 'devise'
+gem 'bootstrap-sass', '~> 3.3.6'

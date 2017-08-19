@@ -12,5 +12,7 @@
  *
  *=require_tree .
  *=require home
- *require_self
+ *=require_self
  */
+@import "bootstrap-sprockets";
+@import "bootstrap";
