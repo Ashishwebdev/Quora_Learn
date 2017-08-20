@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170820064352) do
+ActiveRecord::Schema.define(version: 20170820132455) do
 
   create_table "answer_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.bigint "answer_id"
@@ -85,6 +85,8 @@ ActiveRecord::Schema.define(version: 20170820064352) do
     t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "answer_id"
+    t.index ["answer_id"], name: "index_users_on_answer_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
@@ -100,4 +102,5 @@ ActiveRecord::Schema.define(version: 20170820064352) do
   add_foreign_key "user_comments", "users"
   add_foreign_key "user_topics", "topics"
   add_foreign_key "user_topics", "users"
+  add_foreign_key "users", "answers"
 end
