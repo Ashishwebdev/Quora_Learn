@@ -5,3 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+topic_list = ["Personality Development","Business","Spirituality", "Relations","Clothing","Pollution","Robotics","Web Technology","Fitness"]
+topic_list.each do |body|
+  Topic.create body: body
+end
+
