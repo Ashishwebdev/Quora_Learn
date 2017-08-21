@@ -1,13 +1,15 @@
 <div id="user_written_question">
   <h3> Top stories for you</h3>
   <% @questions.each do |question|%>
-      <%= question.content%>
+      <%= question.body%>
       </br>
+
       <%if question.answers %>
           <% question.answers.each do |answer|%>
-              <%= answer.content%>
+              <%= answer.body%>
           <%end%>
       <%end%>
       </br>
   <% end %>
+
 </div>
