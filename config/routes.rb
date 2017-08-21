@@ -10,9 +10,9 @@ Rails.application.routes.draw do
   root :to=>"home#index"
 
  resources :topics do
-   resource :user_topics
    resource :questions
  end
+  resource :user_topics
 
   scope :questions do
     resources :answers, shallow: true
