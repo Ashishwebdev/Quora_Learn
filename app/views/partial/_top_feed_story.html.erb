@@ -1,15 +1,12 @@
 <div id="user_written_question">
   <h3> Top stories for you</h3>
+  <%@questions_all = Question.all%>
   <% @questions_interested.each do |question|%>
-      <%= question.body%>
-      </br>
-
-      <%if question.answers %>
-          <% question.answers.each do |answer|%>
-              <%= answer.body%>
-          <%end%>
+    <%@questions_all.each do |quest| %>
+      <%if quest.id == question %>
+             <%= quest.body%>
+          <% end %>
       <%end%>
-      </br>
   <% end %>
 
 </div>
