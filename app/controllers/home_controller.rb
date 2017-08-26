@@ -6,7 +6,7 @@ class HomeController < ApplicationController
     @questions_interested = Array.new
     i=0
     @topics.each do |topic|
-      @questions_interested[i] = topic.question_ids
+      @questions_interested[i] = topic.question_ids.to_param
       i=i+1
     end
   end
