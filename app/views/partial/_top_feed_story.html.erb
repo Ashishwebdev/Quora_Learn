@@ -1,11 +1,11 @@
 <div id="user_written_question">
   <h3> Top stories for you</h3>
-  <%@questions_all = Question.all%>
+  <%questions_all = Question.all%>
 
   <% q_array_all = Array.new%>
   <% q_body_all = Array.new%>
    <% i=0 %>
-  <% @questions_all.each do |q|%>
+  <% questions_all.each do |q|%>
       <%q_body_all[i] = q.body.to_s%>
       <%q_array_all[i]=q.id.to_param%>
       <%i = i+1 %>
@@ -13,8 +13,18 @@
 
   <% @questions_interested.each do |question|%>
     <%q_array_all.each do |quest| %>
+          <%answer_array_all = Array.new%>
       <%if quest == question %>
               <%= q_body_all[question.to_i - 1]%>
+              <%if answer_array_all = Answer.where(:question_id => quest.to_i)%>
+                  <%f = 0%>
+                  <%answer_array_all.each do %>
+                  <%= answer_array_all[f]%>
+                  <%f= f+1%>
+                      <%end%>
+              <% end %>
+              <%=  link_to "Answer", new_question_answer_path(question.to_i)%>
+              <br />
           <% end %>
       <%end%>
   <% end %>

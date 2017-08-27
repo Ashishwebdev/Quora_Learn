@@ -158,6 +158,8 @@
     border-bottom: inset gainsboro 1px;
 }
 #user_written_question{
+
+    padding-top: 50px;
     padding-left: 300px;
 }
 #improve_feed{

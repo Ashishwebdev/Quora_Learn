@@ -1,0 +1,12 @@
+
+<%=form_with(scope: :post, url: question_answers_path, local: true) do %>
+    <%= @question.body %>
+    <br />
+    <%= label_tag(:answer, "Answer") %>
+    <br />
+    <%= text_area_tag(:body) %>
+    <br />
+    <%= submit_tag("Save Answer") %>
+<%end%>
+
+

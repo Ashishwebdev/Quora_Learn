@@ -26,11 +26,4 @@ Rails.application.routes.draw do
     resources :answer_comments
   end
 
-=begin
-resources :question
-resources :answer
-resources :comment
-resources :topic
-=end
-
 end
