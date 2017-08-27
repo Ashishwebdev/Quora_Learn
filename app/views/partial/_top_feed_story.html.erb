@@ -20,7 +20,12 @@
               <%if answer_array_all = Answer.where(:question_id => quest.to_i)%>
                   <%f = 0%>
                   <%answer_array_all.each do %>
-                      <p> <%= answer_array_all[f].body%></p>
+                      <p> <%= answer_array_all[f].body%>
+                        <%if current_user = answer_array_all[f].user_id%>
+                            <%= link_to "Edit", edit_question_answer_path(quest.to_i, answer_array_all[f].id)%>
+                            <%= link_to "Delete", question_answer_path(quest.to_i, answer_array_all[f].id), method: :delete , data: {confirm: 'Are you sure'}%>
+                        <%end%>
+                      </p>
                   <%f= f+1%>
                       <%end%>
               <% end %>

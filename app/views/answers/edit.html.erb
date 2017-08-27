@@ -1,0 +1,11 @@
+
+<%=form_with( url: question_answer_path, method: :put ,local: true) do %>
+    <%= @question.body %>
+    <br />
+    <%= label_tag(:answer, "Answer") %>
+    <br />
+    <%= text_area_tag(:body, @answer.body) %>
+    <br />
+    <%= submit_tag("Update Answer") %>
+<%end%>
+

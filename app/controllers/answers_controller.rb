@@ -1,11 +1,12 @@
 class AnswersController < ApplicationController
 before_action :authenticate_user!
+before_action :set_answer , only: [:show, :edit , :update, :destroy]
   def new
     @question = Question.find(params[:question_id])
   end
 
 def show
-  @answer  = Answer.find(params[:id])
+
 end
 
   def create
@@ -19,18 +20,30 @@ end
   end
 
   def edit
-     @answer = Answer.find(params[:question_id])
+    @question = Question.find(params[:question_id])
+
   end
 
 
   def update
-
+   @answer.update(answer_params)
+    redirect_to root_path
   end
+
+  def destroy
+    
+    @answer.destroy
+    redirect_to root_path
+end
+
 
   private
 
+def set_answer
+  @answer  = Answer.find(params[:id])
+end
+
   def answer_params
     params.permit(:user_id, :question_id,:body)
-
   end
 end
