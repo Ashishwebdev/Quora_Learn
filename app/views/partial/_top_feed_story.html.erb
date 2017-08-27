@@ -16,10 +16,11 @@
           <%answer_array_all = Array.new%>
       <%if quest == question %>
               <%= q_body_all[question.to_i - 1]%>
+              <br />
               <%if answer_array_all = Answer.where(:question_id => quest.to_i)%>
                   <%f = 0%>
                   <%answer_array_all.each do %>
-                  <%= answer_array_all[f]%>
+                      <p> <%= answer_array_all[f].body%></p>
                   <%f= f+1%>
                       <%end%>
               <% end %>
