@@ -1,0 +1,4 @@
+<%= form_with(url: comment_path, method: :patch) do %>
+    <%= text_area_tag :body, @comment.body %> <br />
+    <%= submit_tag "Comment"%>
+<% end %>

@@ -1,3 +1,4 @@
+
 <div id="user_written_question">
   <h3> Top stories for you</h3>
   <%questions_all = Question.all%>
@@ -21,11 +22,31 @@
                   <%f = 0%>
                   <%answer_array_all.each do %>
                       <p> <%= answer_array_all[f].body%>
+
                         <%if current_user = answer_array_all[f].user_id%>
                             <%= link_to "Edit", edit_question_answer_path(quest.to_i, answer_array_all[f].id)%>
                             <%= link_to "Delete", question_answer_path(quest.to_i, answer_array_all[f].id), method: :delete , data: {confirm: 'Are you sure'}%>
                         <%end%>
                       </p>
+
+                      <p>
+                        <%if answer_array_all[f].comments%>
+                           <%answer_array_all[f].comments.each do |comment|%>
+                             <%= comment.body%>
+                             <%if current_user = comment.user_ids%>
+                                <%= link_to "Edit", edit_comment_path(comment.id)%>
+                                <%= link_to "Delete", comment_path(comment.id), method: :delete, data: {confirm: 'Are you sure'}%>
+                                <%end%>
+                            <%end%>
+                        <%end%>
+                      </p>
+                        <%= form_with(url: comments_path, method: :post) do %>
+                            <%= label_tag(:answer, "Comment") %> <br />
+                            <%= hidden_field_tag :answer_id, answer_array_all[f].id %>
+                            <%= text_area_tag :body %> <br />
+                            <%= submit_tag "Comment"%>
+                        <% end %>
+
                   <%f= f+1%>
                       <%end%>
               <% end %>
