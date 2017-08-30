@@ -29,7 +29,7 @@
                         <%end%>
                       </p>
 
-                      <p>
+                      <p id="comment">
                         <%if answer_array_all[f].comments%>
                            <%answer_array_all[f].comments.each do |comment|%>
                              <%= comment.body%>
@@ -44,7 +44,7 @@
                             <%= label_tag(:answer, "Comment") %> <br />
                             <%= hidden_field_tag :answer_id, answer_array_all[f].id %>
                             <%= text_area_tag :body %> <br />
-                            <%= submit_tag "Comment"%>
+                            <%= submit_tag "Comment", :id => "comment_submit"%>
                         <% end %>
 
                   <%f= f+1%>

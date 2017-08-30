@@ -3,10 +3,10 @@ class CommentsController < ApplicationController
   before_action :set_answer , only: [:create]
   before_action :set_comment, only: [:edit, :update, :destroy]
   def create
-    comment =  @answer.comments.new(comment_params)
-    comment.save
-    @answer_comments = @answer.answer_comments.where(comment_id: comment.id).first_or_create
-    @user_comments = comment.user_comments.where(user_id: current_user).first_or_create
+    @comment =  @answer.comments.new(comment_params)
+    @comment.save
+    @answer_comments = @answer.answer_comments.where(comment_id: @comment.id).first_or_create
+    @user_comments = @comment.user_comments.where(user_id: current_user).first_or_create
   end
 
   def edit
