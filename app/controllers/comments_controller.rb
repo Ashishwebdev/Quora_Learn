@@ -7,6 +7,11 @@ class CommentsController < ApplicationController
     @comment.save
     @answer_comments = @answer.answer_comments.where(comment_id: @comment.id).first_or_create
     @user_comments = @comment.user_comments.where(user_id: current_user).first_or_create
+    respond_to do |format|
+      format.html { redirect_to root_url, alert: 'Page not accessible' }
+      format.js
+    end
+
   end
 
   def edit

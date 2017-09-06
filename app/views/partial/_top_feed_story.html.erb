@@ -40,6 +40,7 @@
                             <%end%>
                         <%end%>
                       </p>
+
                         <%= form_with(url: comments_path, method: :post) do %>
                             <%= label_tag(:answer, "Comment") %> <br />
                             <%= hidden_field_tag :answer_id, answer_array_all[f].id %>
