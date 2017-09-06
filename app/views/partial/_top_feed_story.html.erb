@@ -32,12 +32,14 @@
                       <p id="comment">
                         <%if answer_array_all[f].comments%>
                            <%answer_array_all[f].comments.each do |comment|%>
+                            <%= form_with(url: comments_path, id: comment.id) do %>
                              <%= comment.body%>
                              <%if current_user = comment.user_ids%>
                                 <%= link_to "Edit", edit_comment_path(comment.id)%>
-                                <%= link_to "Delete", comment_path(comment.id), method: :delete, data: {confirm: 'Are you sure'}%>
+                                <%= link_to "Delete", comment_path(comment.id), method: :delete, data: {confirm: 'Are you sure'}, remote: true%>
                                 <%end%>
                             <%end%>
+                            <% end %>
                         <%end%>
                       </p>
 
