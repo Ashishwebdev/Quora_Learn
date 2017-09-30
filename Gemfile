@@ -56,3 +56,5 @@ gem 'actioncable', '~> 5.1', '>= 5.1.0'
 
 gem 'devise'
 gem 'bootstrap-sass', '~> 3.3.6'
+
+gem 'acts_as_votable', '~> 0.10.0'

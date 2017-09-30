@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   devise_for :users
 =begin
   get "user/topic_interest"
@@ -17,13 +16,18 @@ Rails.application.routes.draw do
     resources :answers
   end
 
-
   scope :answers do
     resources :comments
+  end
+
+  resources :answers, only: []  do
+    put "Upvote", to: "votes#upvote"
+    put "Downvote", to: "votes#downvote"
   end
 
   scope :comments do
     resources :answer_comments
   end
+
 
 end
