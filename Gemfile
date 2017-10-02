@@ -58,3 +58,5 @@ gem 'devise'
 gem 'bootstrap-sass', '~> 3.3.6'
 
 gem 'acts_as_votable', '~> 0.10.0'
+
+gem 'carrierwave', '~> 1.0'

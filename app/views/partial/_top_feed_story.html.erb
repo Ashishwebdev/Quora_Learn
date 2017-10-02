@@ -1,6 +1,9 @@
 
 <div id="user_written_question">
   <h3> Top stories for you</h3>
+
+  <%= link_to "Select New Topics",  new_user_topics_path%>
+<br />
   <%questions_all = Question.all%>
 
   <% q_array_all = Array.new%>
@@ -16,7 +19,7 @@
     <%q_array_all.each do |quest| %>
           <%answer_array_all = Array.new%>
       <%if quest == question %>
-              <%= q_body_all[question.to_i - 1]%>
+              <%=  q_body_all[question.to_i - 1]%>
               <br />
               <%if answer_array_all = Answer.where(:question_id => quest.to_i)%>
                   <%f = 0%>

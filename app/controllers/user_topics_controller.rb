@@ -1,6 +1,10 @@
 class UserTopicsController < ApplicationController
 
 
+  def new
+    @topics = Topic.all
+  end
+
   def create
     current_user.topics.delete_all
     params["data"].each do |key,value|

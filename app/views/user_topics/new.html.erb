@@ -1,0 +1,13 @@
+
+<%= form_tag( user_topics_path, method: :post ) do %>
+
+    <h2>Select Topics of your interest</h2>
+    <h4>	Topic Name </h4>
+    </br>
+
+    <% @topics.each do |topic|%>
+        <%= topic.body %> <%= check_box_tag "data[#{topic.body}]",topic.id,false  %><br/>
+    <% end %>
+    <%=submit_tag "Submit"%>
+<% end %>
+
