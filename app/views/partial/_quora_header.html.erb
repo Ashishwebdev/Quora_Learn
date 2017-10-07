@@ -37,9 +37,9 @@
           </li>
           <li>
             <a id="current_user" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-              <div id="profile_pic"></div>
+              <div id="profile_pic"><%=  %></div>
               <%if user_signed_in?%>
-              <div id="username"><%= current_user.username%></div>
+              <div id="username"><%= current_user.username %></div>
               <% end %>
             </a>
 

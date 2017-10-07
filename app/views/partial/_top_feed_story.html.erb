@@ -23,14 +23,16 @@
               <br />
               <%if answer_array_all = Answer.where(:question_id => quest.to_i)%>
                   <%f = 0%>
+
                   <%answer_array_all.each do %>
+
                       <p> <%= answer_array_all[f].body%>   </p>
 
                            <%= link_to image_tag("upvote.png", :size => "26x23"), answer_Upvote_path(answer_array_all[f].id) ,remote: true , method: :put  %>
-                      <div id="vote_size">  <%= answer_array_all[f].get_upvotes.size %> </div>
+                           <div id="vote_size">  <%= answer_array_all[f].get_upvotes.size %> </div>
                            <%= link_to image_tag("downvote.png", :size => "26x23"), answer_Downvote_path(answer_array_all[f].id) , remote: true , method: :put %>
 
-                        <%if current_user = answer_array_all[f].user_id%>
+                        <%if current_user.id = answer_array_all[f].user_id%>
                             <%= link_to "Edit", edit_question_answer_path(quest.to_i, answer_array_all[f].id)%>
                             <%= link_to "Delete", question_answer_path(quest.to_i, answer_array_all[f].id), method: :delete , data: {confirm: 'Are you sure'}%>
                         <%end%>

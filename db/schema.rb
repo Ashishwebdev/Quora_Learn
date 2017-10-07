@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170930055704) do
+ActiveRecord::Schema.define(version: 20171007171534) do
 
   create_table "answer_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.bigint "answer_id"
@@ -86,6 +86,7 @@ ActiveRecord::Schema.define(version: 20170930055704) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "answer_id"
+    t.string "avatar"
     t.index ["answer_id"], name: "index_users_on_answer_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
