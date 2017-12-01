@@ -1,5 +1,6 @@
 class User < ApplicationRecord
-  mount_uploader :avatar, AvatarUploader
+
+  before_save {self.email = email.downcase}
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -8,18 +9,17 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-#user Avatar validation
+
 
  
 
-  validates_presence_of   :avatar
-  validates_integrity_of  :avatar
-  validates_processing_of :avatar
+
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
+  validates :email, presence: true, length: {maximum: 255}, format: {with: VALID_EMAIL_REGEX}, uniqueness: {case_sensitive: false}
 
 
   has_one :answer
   has_many :votes
-  belongs_to :answer
   has_many :user_topics, dependent: :destroy
   has_many :topics, through: :user_topics, dependent: :destroy
   has_many :questions, dependent: :destroy

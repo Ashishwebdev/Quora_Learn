@@ -14,6 +14,9 @@ gem 'coffee-rails', '~> 4.2', '>= 4.2.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
+gem 'puma', '~> 3.7'
+gem 'faker', '~> 1.6', '>= 1.6.3'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -62,3 +65,4 @@ gem 'acts_as_votable', '~> 0.10.0'
 gem 'carrierwave', '~> 1.0'
 
 gem 'rmagick', '~> 2.15', '>= 2.15.4'
+gem 'fog',                     '1.40.0'

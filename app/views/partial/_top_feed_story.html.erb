@@ -26,7 +26,7 @@
                   <%answer_array_all.each do |answer| %>
                       <div id="answer_user">
 
-                        <%=  User.where(:id => answer.user_id) %>
+                        <%=  User.where(:id => answer.user_id).ids %>
                       </div>
                       <p> <%= answer.body%>   </p>
 

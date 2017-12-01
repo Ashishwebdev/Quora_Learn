@@ -1,2 +1,2 @@
 var upvote = $('#vote_size');
-upvote.parent().parent().find('#vote_size').html('<%= escape_javascript     @answer.votes_for.size.to_s %>');
+upvote.parent().find('#vote_size').html('<%= escape_javascript     @answer.votes_for.size.to_s %>');

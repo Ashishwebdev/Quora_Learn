@@ -37,7 +37,7 @@
           </li>
           <li>
             <a id="current_user" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-              <div id="profile_pic"><%= image_tag current_user.avatar.thumb, size: "30x30" %></div>
+              <div id="profile_pic"><%= gravatar_for(current_user) %></div>
               <%if user_signed_in?%>
               <div id="username"><%= current_user.username %></div>
               <% end %>
